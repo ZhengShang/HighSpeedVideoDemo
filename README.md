@@ -1,0 +1,3 @@
+# HighSpeedVideoDemo
+演示如何使用Camera2的HighSpeed高帧率录制视频
+
