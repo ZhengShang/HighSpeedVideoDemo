@@ -13,7 +13,7 @@
 
 ### 关键点
 
-要使用`mCameraDevice.createConstrainedHighSpeedCaptureSession(`, 需要注意一下2点:
+要使用`mCameraDevice.createConstrainedHighSpeedCaptureSession`, 需要注意以下2点:
 
 1.预览尺寸和录制尺寸要一直
 
