@@ -3,6 +3,10 @@
 
 **❗详细说明文档参见<https://www.jianshu.com/p/0d2f200ab374>**
 
+### Demo Apk 下载
+
+点击[下载DemoApk](https://github.com/ZhengShang/HighSpeedVideoDemo/raw/master/demo.apk)体验
+
 ### 界面预览
 
 ![预览画面](https://upload-images.jianshu.io/upload_images/1871862-eaa996a9bb5fd93d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
