@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">HighSpeedVideoDemo</string>
+    <string name="description_info">Info</string>
+    <string name="permission_request">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="video_info">Video size: %1$d x %2$d %3$dfps</string>
+    <string name="open_failed_of_map_null">相机参数Map为空</string>
+    <string name="open_failed_of_not_support_high_speed">不支持高帧率录制</string>
+</resources>
