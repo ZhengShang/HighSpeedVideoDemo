@@ -58,11 +58,11 @@ import java.util.Objects;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-public class CaptureHighSpeedVideoMode extends Fragment
+public class CaptureHighSpeedVideoModeFragment extends Fragment
         implements View.OnClickListener {
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
 
-    private static final String TAG = "CaptureHighSpeedVideoMode";
+    private static final String TAG = "HSVFragment";
     private static final int REQUEST_VIDEO_PERMISSIONS = 1;
     private static final String FRAGMENT_DIALOG = "dialog";
 
@@ -119,7 +119,7 @@ public class CaptureHighSpeedVideoMode extends Fragment
         @Override
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture,
                                                 int width, int height) {
-            configureTransform(width, height);
+            startPreview();
         }
 
         @Override
@@ -208,8 +208,8 @@ public class CaptureHighSpeedVideoMode extends Fragment
 
     };
 
-    public static CaptureHighSpeedVideoMode newInstance() {
-        return new CaptureHighSpeedVideoMode();
+    public static CaptureHighSpeedVideoModeFragment newInstance() {
+        return new CaptureHighSpeedVideoModeFragment();
     }
 
     @Override
@@ -471,6 +471,11 @@ public class CaptureHighSpeedVideoMode extends Fragment
             return;
         }
 
+        if (mMediaRecorder != null) {
+            //这个东西在上一次打开预览的时候,已经设置成了prepare,但是没有使用. 所以需要reset
+            mMediaRecorder.reset();
+        }
+
         try {
             surfaces.clear();
             SurfaceTexture texture = mTextureView.getSurfaceTexture();
@@ -646,6 +651,7 @@ public class CaptureHighSpeedVideoMode extends Fragment
 
     /**
      * 如果传入的文件为空文件(文件存在,但大小为0kb),则删除掉
+     * 这些0长度的文件, 是因为MediaRecorder调用了prepare之后没有开始录制生成的. 他们数据无效数据
      *
      * @param filePath 文件路径
      */
